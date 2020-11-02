@@ -1,10 +1,10 @@
 import React from "react";
 import { Text, StyleSheet } from "react-native";
 
-export const DetailsScreen = () => {
-  const title = "Details";
+export const DetailsScreen = (props) => {
+  const value = props.navigation.state.params.value;
 
-  return <Text style={styles.text}>{title}</Text>;
+  return <Text style={styles.text}>search: {value}</Text>;
 };
 
 const styles = StyleSheet.create({
