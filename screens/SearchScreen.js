@@ -1,33 +1,20 @@
-import React from "react";
-import { Text, StyleSheet, TouchableOpacity, } from "react-native";
+import React, { useState } from "react";
+import { SearchBar } from "../components/SearchBar";
+import { Button } from "../components/Button";
 
 export const SearchScreen = ({ navigation }) => {
-  const title = "Search Screen";
-
+  const [value, setValue] = useState("");
   return (
     <>
-      <Text style={styles.text}>{title}</Text>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Details")}>
-        <Text style={styles.text}>Details</Text>
-      </TouchableOpacity>
+      <SearchBar
+        setValue={(value) => setValue(value)}
+        setReset={() => setValue("")}
+        value={value}
+      />
+      <Button
+        title="Details"
+        onPress={() => navigation.navigate("Details", { value: value })}
+      />
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 30,
-    textAlign: "center",
-  },
-  button: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 15,
-    marginHorizontal: 30,
-    paddingHorizontal: 20,
-    backgroundColor: "#699490",
-    borderColor: "#000",
-    borderWidth: 1,
-  },
-});
