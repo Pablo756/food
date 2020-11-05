@@ -2,7 +2,7 @@ import React from "react";
 import { View, TextInput, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-export const SearchBar = ({ value, setValue, setReset, onSubmit }) => {
+export const SearchBar = ({ value, setValue, onSubmit }) => {
   return (
     <View style={styles.ct}>
       <Ionicons style={styles.icon} name="ios-search" size={36} color="gray" />
@@ -13,8 +13,7 @@ export const SearchBar = ({ value, setValue, setReset, onSubmit }) => {
         autoCorrect={false}
         autoCapitalize={"none"}
         onChangeText={setValue}
-        onFocus={setReset}
-        onKeyPress={onSubmit}
+        onSubmitEditing={onSubmit}
         value={value}
       />
     </View>

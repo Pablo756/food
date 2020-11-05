@@ -11,17 +11,13 @@ export const SearchScreen = () => {
   const [value, setValue] = useState("");
   const [searchApi, results, errorMessage] = useResults();
 
-  const filterResultsByPrice = (price) => {
-    return results.filter((result) => {
-      return result.price === price;
-    });
-  };
+  const filterResultsByPrice = (price) =>
+    results.filter((result) => result.price === price);
 
   return (
     <>
       <SearchBar
-        setValue={(value) => setValue(value)}
-        setReset={() => setValue("")}
+        setValue={setValue}
         onSubmit={() => searchApi(value)}
         value={value}
       />
