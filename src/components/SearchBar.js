@@ -2,16 +2,18 @@ import React from "react";
 import { View, TextInput, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-export const SearchBar = ({ value, setValue, setReset }) => {
+export const SearchBar = ({ value, setValue, onSubmit }) => {
   return (
     <View style={styles.ct}>
-      <Ionicons style={styles.icon} name="ios-search" size={38} color="gray" />
+      <Ionicons style={styles.icon} name="ios-search" size={36} color="gray" />
       <TextInput
         style={styles.input}
+        placeholder="Search"
+        placeholderTextColor="#bbb"
         autoCorrect={false}
         autoCapitalize={"none"}
         onChangeText={setValue}
-        onFocus={setReset}
+        onSubmitEditing={onSubmit}
         value={value}
       />
     </View>
@@ -20,13 +22,12 @@ export const SearchBar = ({ value, setValue, setReset }) => {
 
 const styles = StyleSheet.create({
   ct: {
+    backgroundColor: "#ddd",
     flexDirection: "row",
     alignItems: "center",
-    marginVertical: 20,
-    marginHorizontal: 40,
-    height: 50,
-    borderColor: "gray",
-    borderWidth: 1,
+    marginTop: 20,
+    marginHorizontal: 20,
+    height: 42,
     borderRadius: 8,
   },
   input: {
@@ -34,6 +35,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   icon: {
-    marginHorizontal: 8,
+    marginHorizontal: 7,
   },
 });
