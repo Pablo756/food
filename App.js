@@ -5,11 +5,14 @@ import { DetailsScreen } from "./src/screens/DetailsScreen";
 
 const navigator = createStackNavigator(
   {
-    Categories: SearchScreen,
+    Search: SearchScreen,
     Details: DetailsScreen,
   },
   {
-    initialRouteName: "Categories",
+    initialRouteName: "Search",
+    defaultNavigationOptions: {
+      title: "Business Search",
+    },
   }
 );
 
