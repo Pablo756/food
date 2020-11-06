@@ -1,13 +1,17 @@
 import React from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
 
-export const ResultsDetail = ({ result }) => {
+export const ResultsDetail = ({
+  result: { name, image_url, rating, review_count },
+}) => {
   return (
     <View style={styles.ct}>
-      <Image style={styles.image} source={{ uri: result.image_url }} />
-      <Text style={styles.name}>{result.name}</Text>
+      <Image style={styles.image} source={{ uri: image_url }} />
+      <Text style={styles.name} numberOfLines={1}>
+        {name}
+      </Text>
       <Text style={styles.desc}>
-        {result.rating} Stars, {result.review_count} Reviews
+        {rating} Stars, {review_count} Reviews
       </Text>
     </View>
   );
@@ -15,6 +19,7 @@ export const ResultsDetail = ({ result }) => {
 
 const styles = StyleSheet.create({
   ct: {
+    flex: 1,
     marginRight: 10,
   },
   image: {
@@ -25,6 +30,7 @@ const styles = StyleSheet.create({
   name: {
     fontWeight: "bold",
     fontSize: 16,
+    width: 220,
   },
   desc: {
     fontSize: 16,
